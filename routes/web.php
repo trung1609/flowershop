@@ -84,3 +84,12 @@ Route::middleware('auth')->post('/orders/{order}/update-status', [App\Http\Contr
 // Lịch sử mua hàng cho khách hàng
 Route::middleware('auth')->get('/orders/history', [App\Http\Controllers\OrderController::class, 'history'])->name('orders.history');
 
+//Trang admin
+// --- Routes cho admin ---
+Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+    Route::resource('products', App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('orders', App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('customers', App\Http\Controllers\Admin\CustomerController::class);
+});
+
