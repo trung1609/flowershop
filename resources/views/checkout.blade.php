@@ -84,15 +84,15 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $item['name'] }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $item['quantity'] }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ number_format($item['price'], 2) }}₫</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ number_format($item['price'] * $item['quantity'], 2) }}₫</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ number_format($item['price'], 0) }}₫</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ number_format($item['price'] * $item['quantity'], 0)}}₫</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
         <div class="text-right text-xl font-bold text-rose-600 mb-6">
-            <strong>Tổng cộng: {{ number_format($total, 2) }}₫</strong>
+            <strong>Tổng cộng: {{ number_format($total, 0) }}₫</strong>
         </div>
 
         <!-- Phương thức thanh toán -->
