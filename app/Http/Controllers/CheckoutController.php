@@ -196,9 +196,9 @@ class CheckoutController extends Controller
 
     $orderInfo = "Thanh toán qua MoMo";
     $amount = (int) $request->input('total_momo');
-    $orderId = time();
+    $orderId = $order->id . "_" . time();
     $redirectUrl = "http://127.0.0.1:8000/checkout";
-    $ipnUrl = "http://127.0.0.1:8000/checkout/momo/ipn";
+    $ipnUrl = "http://127.0.0.1:8000/momo/ipn";
     $extraData = "";
 
     $requestId = time() . "";

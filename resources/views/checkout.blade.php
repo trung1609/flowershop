@@ -113,15 +113,31 @@
                     </label>
                 </div>
             </div>
+            <form method="POST" action="{{ route('checkout.process') }}">
+                @csrf
+            </form>
+
+            <form id="momoForm" method="POST" action="{{ route('momo_payment') }}">
+                @csrf
+                <input type="hidden" name="total_momo" value="{{ $total }}">
+            </form>
+
+            <button type="button"
+                    onclick="document.getElementById('momoForm').submit();"
+                    class="w-full flex items-center justify-center gap-2 py-3 px-8 bg-pink-500 text-white rounded-md text-lg cursor-pointer hover:bg-pink-600 transition-colors duration-200">
+                <img src="{{ asset('images/momo.png') }}" alt="MoMo" class="w-6 h-6">
+                Thanh toán qua MoMo
+            </button>
         </div>
+
         <button type="submit" class="w-full py-3 px-8 bg-rose-500 text-white border-none rounded-md text-lg cursor-pointer hover:bg-rose-600 transition-colors duration-200">Xác nhận đặt hàng</button>
         </form>
-        <form action="{{ url('/momo_payment') }}" method="post" >
+        {{-- <form action="{{ url('/momo_payment') }}" method="post" >
             @csrf
             <input type="hidden" name="total_momo" value="{{ $total }}">
             <button type="submit" class="btn btn-default check_out" name="payUrl">Thanh
                 toán MOMO</button>
-        </form>
+        </form> --}}
 </div>
 
 <script>
