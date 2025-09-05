@@ -124,9 +124,9 @@
 
             <button type="button"
                     onclick="document.getElementById('momoForm').submit();"
-                    class="w-full flex items-center justify-center gap-2 py-3 px-8 bg-pink-500 text-white rounded-md text-lg cursor-pointer hover:bg-pink-600 transition-colors duration-200">
-                <img src="{{ asset('images/momo.png') }}" alt="MoMo" class="w-6 h-6">
-                Thanh toán qua MoMo
+                    class=" mt-4 duration-200 flex items-start space-x-6 cursor-pointer ">
+                    <img src="https://homepage.momocdn.net/fileuploads/svg/momo-file-240411162904.svg" alt="MoMo" class="w-8 h-8 ">
+                    <p class="ml-1 text-1xl font-medium text-gray-900">Thanh toán qua MoMo</p>
             </button>
         </div>
 
