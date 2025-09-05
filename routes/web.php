@@ -32,12 +32,12 @@ Route::get('/shop', [App\Http\Controllers\ProductController::class, 'shop'])->na
 
 Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/analytics', [ProductController::class, 'analytics'])->name('products.analytics');
-    
+
     // Review routes
     Route::post('/products/{product}/reviews', [ProductController::class, 'storeReview'])->name('reviews.store');
     Route::put('/reviews/{review}', [ProductController::class, 'updateReview'])->name('reviews.update');
     Route::delete('/reviews/{review}', [ProductController::class, 'deleteReview'])->name('reviews.delete');
-    
+
     // Profile routes
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -56,6 +56,8 @@ Route::resource('orders', OrderController::class);
 
 // Cart routes
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
@@ -69,6 +71,7 @@ Route::post('/cart/buy-now/{product}', [App\Http\Controllers\CartController::cla
 // Trang thanh toán riêng biệt
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'show'])->name('checkout.show');
+
     Route::post('/checkout', [App\Http\Controllers\CheckoutController::class, 'process'])->name('checkout.process');
 });
 
@@ -84,6 +87,7 @@ Route::middleware('auth')->post('/orders/{order}/update-status', [App\Http\Contr
 // Lịch sử mua hàng cho khách hàng
 Route::middleware('auth')->get('/orders/history', [App\Http\Controllers\OrderController::class, 'history'])->name('orders.history');
 
+<<<<<<< HEAD
 //Trang admin
 // --- Routes cho admin ---
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
@@ -93,3 +97,9 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::resource('customers', App\Http\Controllers\Admin\CustomerController::class);
 });
 
+=======
+
+// Route::post('/vnpay_payment', [App\Http\Controllers\PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
+Route::post('momo_payment', [App\Http\Controllers\CheckoutController::class, 'momo_payment'])->name('momo_payment');
+Route::post('/momo/ipn', [CheckoutController::class, 'momoIpn']);
+>>>>>>> edc765b4a353c776cb3b79d962c1019d9114cfb2
