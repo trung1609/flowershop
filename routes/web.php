@@ -89,10 +89,10 @@ Route::middleware('auth')->post('/orders/{order}/update-status', [App\Http\Contr
 // Lịch sử mua hàng cho khách hàng
 Route::middleware('auth')->get('/orders/history', [App\Http\Controllers\OrderController::class, 'history'])->name('orders.history');
 
-<<<<<<< HEAD
+
 Route::post('momo_payment', [App\Http\Controllers\CheckoutController::class, 'momo_payment'])->name('momo_payment');
 Route::post('/momo/ipn', [CheckoutController::class, 'momoIpn']);
-=======
+
 // Admin dashboard và các chức năng quản lý
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -100,5 +100,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/orders/{order}', [AdminController::class, 'destroyOrder'])->name('admin.destroyOrder');
     Route::delete('/admin/products/{product}', [AdminController::class, 'destroyProduct'])->name('admin.destroyProduct');
 });
->>>>>>> 3a7e9c68bd9899ca123784fc0b4962cc72c33895
+
 

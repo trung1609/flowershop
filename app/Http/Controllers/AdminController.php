@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-=======
 use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\User;
->>>>>>> 3a7e9c68bd9899ca123784fc0b4962cc72c33895
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-<<<<<<< HEAD
+
     public function index(){
         return view('admin_page');
     }
-}
-=======
     public function __construct()
     {
         $this->middleware('auth');
@@ -140,5 +135,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Xóa sản phẩm thành công!');
     }
-}
->>>>>>> 3a7e9c68bd9899ca123784fc0b4962cc72c33895
+};
