@@ -87,19 +87,6 @@ Route::middleware('auth')->post('/orders/{order}/update-status', [App\Http\Contr
 // Lịch sử mua hàng cho khách hàng
 Route::middleware('auth')->get('/orders/history', [App\Http\Controllers\OrderController::class, 'history'])->name('orders.history');
 
-<<<<<<< HEAD
-//Trang admin
-// --- Routes cho admin ---
-Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
-    Route::resource('products', App\Http\Controllers\Admin\ProductController::class);
-    Route::resource('orders', App\Http\Controllers\Admin\OrderController::class);
-    Route::resource('customers', App\Http\Controllers\Admin\CustomerController::class);
-});
-
-=======
-
-// Route::post('/vnpay_payment', [App\Http\Controllers\PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
 Route::post('momo_payment', [App\Http\Controllers\CheckoutController::class, 'momo_payment'])->name('momo_payment');
 Route::post('/momo/ipn', [CheckoutController::class, 'momoIpn']);
->>>>>>> edc765b4a353c776cb3b79d962c1019d9114cfb2
+
